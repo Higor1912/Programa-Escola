@@ -56,7 +56,6 @@ def main(page: ft.Page):
     page.title = "Escola"
     page.window.width = 500
     page.window.height = 500
-    page.window.icon = "path/to/your/icon.ico"  # Se você quiser definir um ícone
 
     students = get_students()
 
@@ -95,14 +94,12 @@ def main(page: ft.Page):
 
         content = ft.Column(
             controls=[
-                # Row com o botão de fechar no topo
                 ft.Row(
                     controls=[
                         ft.TextButton("Fechar", on_click=lambda e: close_dialog(e, dialog), icon=ft.icons.CLOSE),
                     ],
                     alignment=ft.MainAxisAlignment.END
                 ),
-                # Row contendo a tabela
                 ft.Row(
                     controls=[student_table],
                 ),
@@ -112,7 +109,7 @@ def main(page: ft.Page):
         dialog = ft.AlertDialog(
             title=ft.Text('Lista de Estudantes'),
             content=content,
-            actions=[]  # Não precisa de botões adicionais
+            actions=[]
         )
         page.dialog = dialog
         dialog.open = True
